@@ -4,11 +4,9 @@ bin2int “000110” => 6
 -}
 
 -- 1
+bin2int :: String -> Int
+bin2int = foldl (\acc x -> acc * 2 + read [x]) 0
 
-
-
-
-
-ex1 = do
-  print "Ex. 1"
+task1 = do
+  print "Task 1"
   print $ bin2int "000110"  -- 6
