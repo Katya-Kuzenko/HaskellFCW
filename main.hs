@@ -47,12 +47,6 @@ task6 = do
   print "Task 6"
   print $ maxDist [(1, 2), (3, 4), (5, 6), (7, 8)]
 
-{-
-4. Складіть тип/и даних, що представляють геометричні фігури з центром 
-— коло, трикутник, квадрат. Напишіть функцію/ї пошуку площі заданої фігури. 
-Напишіть тайпклас для типів, для яких можна знайти площу. 
-Реалізуйте цей тайпклас для типів фігури.
--}
 
 -- 4
 data Point = Point Double Double
@@ -77,3 +71,34 @@ task4 = do
   print $ area (Circle (Point 0 0) 5)
   print $ area (Square (Point 0 0) 5)
   print $ area (Triangle (Point 0 0) (Point 1 0) (Point 0 1))
+
+{-
+2. Для заданого гетероморфного списку, визначеного типом
+data HList a = Atom a | List [HList a]
+напишіть функцію, що розділяє його на пару підсписків: один містить лише атомарні елементи заданого списку, другий — решту елементів.
+Наприклад:
+	List [Atom 1, List [Atom 2, Atom 3], Atom 4] 
+=> (List [Atom 1, Atom 4], List [List [Atom 2, Atom 3]])
+
+-}
+{-
+-- 2
+data HList a = Atom a | List [HList a]
+splitHList :: HList a -> (HList a, HList a)
+splitHList (List list) = splitHList' list
+  where 
+    splitHList' :: [HList a] -> (HList a, HList a)
+    splitHList' [] = (List [], List [])
+    splitHList' ...
+
+task2 = do
+  print "Task 2"
+-}
+
+
+main = do
+  task1
+  task3
+  task4
+  task5
+  task6
